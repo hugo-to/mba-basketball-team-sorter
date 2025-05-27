@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+body {
+    min-height: 100vh;
+    background: #0a0f2c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    background: #181c3a;
+    border-radius: 32px;
+    box-shadow: 0 0 40px 8px #00f0ff, 0 0 0 4px #181c3a, 0 0 0 8px #0a0f2c;
+    padding: 40px 32px 32px 32px;
+    width: 420px;
+    max-width: 95vw;
+    border: 3px solid #00f0ff;
+    position: relative;
+}
+
+.titulo-principal {
+    color: #ff2aaf;
+    font-size: 2.3rem;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 16px #ff2aaf, 0 0 32px #ff2aaf;
+}
+
+.subtitulo {
+    color: #00f0ff;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 28px;
+    text-shadow: 0 0 8px #00f0ff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+label {
+    color: #00f0ff;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+    margin-top: 8px;
+    text-shadow: 0 0 4px #00f0ff;
+}
+
+input[type="number"] {
+    background: transparent;
+    border: 2px solid #00f0ff;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 10px 16px;
+    margin-bottom: 4px;
+    outline: none;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 0 8px #00f0ff inset;
+}
+input[type="number"]:focus {
+    box-shadow: 0 0 16px #00f0ff, 0 0 8px #00f0ff inset;
+}
+
+.btn-sortear {
+    margin-top: 18px;
+    background: linear-gradient(90deg, #ff2aaf 0%, #a259ff 50%, #00f0ff 100%);
+    color: #fff;
+    font-size: 1.3rem;
+    font-family: 'Orbitron', Arial, sans-serif;
+    border: 2px solid #ff2aaf;
+    border-radius: 12px;
+    padding: 12px 0;
+    cursor: pointer;
+    box-shadow: 0 0 16px #ff2aaf;
+    transition: background 0.2s, box-shadow 0.2s;
+    text-shadow: 0 0 8px #fff;
+}
+.btn-sortear:hover {
+    background: linear-gradient(90deg, #00f0ff 0%, #a259ff 50%, #ff2aaf 100%);
+    box-shadow: 0 0 32px #00f0ff;
+}
+
+.equipos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+@keyframes equipoFadeInZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.7) translateY(30px);
+        filter: blur(8px);
+        box-shadow: 0 0 0 #00f0ff;
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-6px);
+        filter: blur(0px);
+        box-shadow: 0 0 32px #00f0ff;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0px);
+        box-shadow: 0 0 16px #00f0ff;
+    }
+}
+
+.equipo-box {
+    background: rgba(10, 15, 44, 0.8);
+    border: 2px solid #00f0ff;
+    border-radius: 16px;
+    box-shadow: 0 0 16px #00f0ff;
+    padding: 18px 10px 10px 10px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: equipoFadeInZoom 0.7s cubic-bezier(.68,-0.55,.27,1.55) both;
+    opacity: 0;
+}
+
+.equipo-box.visible {
+    opacity: 1;
+}
+
+.equipo-titulo {
+    color: #ffe600;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-shadow: 0 0 8px #ffe600;
+}
+
+.equipo-jugadores {
+    color: #fff;
+    font-size: 1.05rem;
+    margin-left: 8px;
+    margin-top: 2px;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(10, 0, 44, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #181c3a;
+    border-radius: 24px;
+    box-shadow: 0 0 32px #ff2aaf, 0 0 0 4px #181c3a, 0 0 0 8px #0a0f2c;
+    padding: 36px 32px 28px 32px;
+    min-width: 340px;
+    max-width: 95vw;
+    text-align: center;
+    border: 3px solid #ff2aaf;
+}
+
+.modal-titulo {
+    color: #ff2aaf;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 16px #ff2aaf, 0 0 32px #ff2aaf;
+}
+
+.modal-sub {
+    color: #00f0ff;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    text-shadow: 0 0 8px #00f0ff;
+}
+
+#nombres-jugadores {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #00f0ff;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-size: 1.1rem;
+    padding: 12px 10px;
+    margin-bottom: 18px;
+    background: #0a0f2c;
+    color: #fff;
+    box-shadow: 0 0 8px #00f0ff inset;
+    outline: none;
+    resize: vertical;
+    transition: box-shadow 0.2s;
+}
+#nombres-jugadores:focus {
+    box-shadow: 0 0 16px #00f0ff, 0 0 8px #00f0ff inset;
+}
+
+.btn-confirmar {
+    width: 100%;
+    background: linear-gradient(90deg, #ff2aaf 0%, #00f0ff 100%);
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: 'Orbitron', Arial, sans-serif;
+    border: 2px solid #ff2aaf;
+    border-radius: 12px;
+    padding: 12px 0;
+    cursor: pointer;
+    box-shadow: 0 0 16px #ff2aaf;
+    transition: background 0.2s, box-shadow 0.2s;
+    text-shadow: 0 0 8px #fff;
+    margin-top: 8px;
+}
+.btn-confirmar:hover {
+    background: linear-gradient(90deg, #00f0ff 0%, #ff2aaf 100%);
+    box-shadow: 0 0 32px #00f0ff;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 18px 4vw 18px 4vw;
+        width: 98vw;
+    }
+    .modal-content {
+        min-width: 90vw;
+        padding: 18px 4vw 18px 4vw;
+    }
+    .equipos-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+} 
